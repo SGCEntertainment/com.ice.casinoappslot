@@ -82,7 +82,7 @@ public class Manager : MonoBehaviour
             win = true,
             win_amount = 100,
             balance = gameInfo.balance + 0,
-            winlines = new int[] { 1 },
+            winlines = new int[] { 1, 2, 3, 4, 5 },
             result = GetReelData()
         };
 
@@ -134,12 +134,7 @@ public class Manager : MonoBehaviour
         return _iconNames;
     }
 
-    GameObject GetWinLineById(int id) => id switch
-    {
-        1 => winLinePrefabs[0],
-        2 => winLinePrefabs[1],
-        3 => winLinePrefabs[2]
-    };
+    GameObject GetWinLineById(int id) => winLinePrefabs[id - 1];
 
     public void CalculatePrize()
     {
